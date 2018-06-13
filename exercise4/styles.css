@@ -13,3 +13,36 @@
   background-color: gray;
   width: 50px !important;
 }
+
+.large {
+  font-size: 200%;
+}
+
+.accent {
+  font-style: italic;
+}
+
+.rotate {
+  transform: rotate(45deg);
+}
+
+.skew {
+  transform: skewX(-45deg);
+}
+
+.scale {
+  transform: scaleX(1.5);
+}
+
+.demo {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+}
+
+.progress {
+  background-color: red;
+  width: 0px;
+  height: 10px;
+  border: 1px solid black;
+}
