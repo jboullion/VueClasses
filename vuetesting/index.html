@@ -1,0 +1,100 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>The Boring Company</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/main.css">
+
+        <!-- Vue.js -->
+        <script src="js/vue.js"></script>
+        <style>
+            .demo { width: 100px; height: 100px; background-color: cadetblue; display: inline-block; margin: 10px; }
+
+            .red { background-color: red; }
+            .blue { background-color: blue; }
+            .green { background-color: green; }
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+            
+        <div id="app">
+            <input type="text" v-on:input="changeTitle">
+            <h1 v-once>{{ title }}</h1>
+            <h3>{{ title }}</h3>
+            <a v-bind:href="homeLink">Home</a>
+            <hr />
+            <p v-html="fullLink"></p>
+
+            <button v-on:click="increase(2, $event)">Click</button>
+            <p>{{ counter }}</p>
+            <p v-on:mousemove="updateCoords">
+                Coords: {{ x }} / {{ y }}
+                - <span v-on:mousemove.stop.prevent="">DEAD SPOT</span>
+            </p>
+            <hr />
+            <input type="text" v-on:keyup.enter.space="alertMe" />
+            <hr />
+            <div class="demo-wrap">
+                <div 
+                    class="demo"
+                    @click="attachRed = !attachRed"
+                    :class="divClasses"></div>
+                <div class="demo" :class="{red: attachRed}"></div>
+                <div class="demo" :class="[color, {red: attachRed}]"></div>
+            </div>
+            <hr />
+            <input type="text" v-model="color">
+        </div>
+
+        <!-- <script src="js/main.js"></script> -->
+
+        <script type="text/javascript">
+            new Vue({
+                el: '#app',
+                data: {
+                    title: 'Hello World!',
+                    homeLink: 'https://jboullion.com',
+                    fullLink: '<a href="http://jboullion.com">Homepage</a>',
+                    x: 0,
+                    y: 0,
+                    attachRed: false,
+                    color: 'green'
+                },
+                computed: {
+                    divClasses: function() {
+                        return {
+                            red: this.attachRed,
+                            blue: !this.attachRed
+                        }
+                    }
+                },
+                methods: {
+                    changeTitle: function(event) {
+                        this.title = event.target.value;
+                    },
+                    increase: function(step, event) {
+                        this.counter += step;
+                    },
+                    updateCoords: function(event) {
+                        this.x = event.clientX;
+                        this.y = event.clientY;
+                    },
+                    alertMe: function() {
+                        alert(event.target.value);
+                    }
+                }
+            });
+        </script>
+
+    </body>
+</html>
