@@ -28,6 +28,8 @@
         <![endif]-->
             
         <div id="app">
+            
+            <!--
             <input type="text" v-on:input="changeTitle">
             <h1 v-once>{{ title }}</h1>
             <h3>{{ title }}</h3>
@@ -54,11 +56,26 @@
             </div>
             <hr />
             <input type="text" v-model="color">
+        -->
         </div>
 
         <!-- <script src="js/main.js"></script> -->
 
         <script type="text/javascript">
+             new Vue({
+                el: '#app',
+                data: {
+
+                },
+                computed: {
+
+                },
+                methods: {
+
+                }
+             });
+
+        /*
             new Vue({
                 el: '#app',
                 data: {
@@ -94,6 +111,7 @@
                     }
                 }
             });
+            */
         </script>
 
     </body>
