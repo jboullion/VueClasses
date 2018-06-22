@@ -12,7 +12,12 @@
         props: {
             server: {
                 type: Object,
-                required: true
+                required: true,
+                default: {
+                    id: 1,
+                    name: 'Server 1',
+                    status: 'OFFLINE'
+                }
             }
         },
         data () {
@@ -25,8 +30,10 @@
                 return 'Server #'+this.server.id+', Status: '+this.server.status;
             }
         },
-        watch: {
-           
+        created() {
+            eventBus.$on('serverUpdated', (updatedServer) => {
+                this.server = updatedServer;
+            })
         }
     }
 </script>

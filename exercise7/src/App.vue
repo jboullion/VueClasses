@@ -25,22 +25,17 @@
             'app-servers': Servers,
             'app-server-details': ServerDetails,
             'app-footer': Footer
-        },
-        data() {
-            return {
-                server: {
-                    id: 1,
-                    name: 'Server 1',
-                    status: 'primary'
-                }
-            }
-        },
+        }
+    }
+
+    /*
+    ,
         created() {
             eventBus.$on('serverUpdated', (updatedServer) => {
                 this.server = updatedServer;
             })
         }
-    }
+        */
 </script>
 
 <style>
