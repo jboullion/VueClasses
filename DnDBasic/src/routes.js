@@ -1,4 +1,4 @@
-import CharacterInfo from './components/pages/character/Info.vue';
+import Character from './components/pages/character/Character.vue';
 import CharacterSkills from './components/pages/character/SkillList.vue';
 
 /*
@@ -19,12 +19,12 @@ const CharacterSkills = resolve => {
 export const routes = [
     {
         path: '', name: 'home', components: {
-            default: CharacterInfo
+            default: Character
         }
     },
     {
         path: '/character', components: {
-            default: CharacterInfo
+            default: Character
         }
     },
     {
